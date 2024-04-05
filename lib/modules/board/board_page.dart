@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hakaton_teamspace/core/constants/paddings.dart';
+import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/board/board_cubit.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/modules/board/task_card.dart';

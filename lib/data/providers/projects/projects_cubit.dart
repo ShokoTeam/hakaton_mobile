@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hakaton_teamspace/core/constants/routes.dart';
+import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/core/logger.dart';
 import 'package:hakaton_teamspace/data/api.dart';

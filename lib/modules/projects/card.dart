@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hakaton_teamspace/core/constants/constants.dart';
+import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/modules/board/board_page.dart';

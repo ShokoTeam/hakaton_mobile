@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hakaton_teamspace/core/constants/colors.dart';
+import 'package:hakaton_teamspace/core/constants.dart';
 
 class UIScaffold extends StatelessWidget {
   const UIScaffold({super.key, this.body, this.appBar});

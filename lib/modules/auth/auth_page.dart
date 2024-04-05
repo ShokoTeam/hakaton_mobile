@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hakaton_teamspace/core/constants/paddings.dart';
+import 'package:hakaton_teamspace/core/constants.dart';
+import 'package:hakaton_teamspace/core/utils.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
 import 'package:hakaton_teamspace/modules/projects/projects_page.dart';
 import 'package:hakaton_teamspace/widgets/scaffold.dart';
@@ -58,7 +60,10 @@ class _AuthBodyState extends State<_AuthBody> {
             email: emailCtrl.text.trim(),
             password: passwordCtrl.text.trim(),
           );
-    } catch (e) {}
+    } on DioException catch (e) {
+      if (!mounted) return;
+      return Utils.of(context).showError(e.response?.data['data']);
+    }
     setState(() => _isLoading = false);
   }
 

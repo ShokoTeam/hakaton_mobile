@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hakaton_teamspace/core/constants/constants.dart';
+import 'package:hakaton_teamspace/core/constants.dart';
 
 class UIContainer extends StatelessWidget {
   const UIContainer({super.key, this.width, this.height, this.child});
