@@ -22,8 +22,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 mixin _$Project {
   String get uid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'team_uid')
-  String get teamUid => throw _privateConstructorUsedError;
+  Team get team => throw _privateConstructorUsedError;
   @JsonKey(name: 'consumer_uid')
   String? get consumerUid => throw _privateConstructorUsedError;
   @JsonKey(name: 'inspector_uid')
@@ -45,11 +44,13 @@ abstract class $ProjectCopyWith<$Res> {
   $Res call(
       {String uid,
       String name,
-      @JsonKey(name: 'team_uid') String teamUid,
+      Team team,
       @JsonKey(name: 'consumer_uid') String? consumerUid,
       @JsonKey(name: 'inspector_uid') String? inspectorUid,
       @JsonKey(name: 'created_at') String createdAt,
       int tasksCount});
+
+  $TeamCopyWith<$Res> get team;
 }
 
 /// @nodoc
@@ -67,7 +68,7 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
   $Res call({
     Object? uid = null,
     Object? name = null,
-    Object? teamUid = null,
+    Object? team = null,
     Object? consumerUid = freezed,
     Object? inspectorUid = freezed,
     Object? createdAt = null,
@@ -82,10 +83,10 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      teamUid: null == teamUid
-          ? _value.teamUid
-          : teamUid // ignore: cast_nullable_to_non_nullable
-              as String,
+      team: null == team
+          ? _value.team
+          : team // ignore: cast_nullable_to_non_nullable
+              as Team,
       consumerUid: freezed == consumerUid
           ? _value.consumerUid
           : consumerUid // ignore: cast_nullable_to_non_nullable
@@ -104,6 +105,14 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
               as int,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TeamCopyWith<$Res> get team {
+    return $TeamCopyWith<$Res>(_value.team, (value) {
+      return _then(_value.copyWith(team: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -116,11 +125,14 @@ abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   $Res call(
       {String uid,
       String name,
-      @JsonKey(name: 'team_uid') String teamUid,
+      Team team,
       @JsonKey(name: 'consumer_uid') String? consumerUid,
       @JsonKey(name: 'inspector_uid') String? inspectorUid,
       @JsonKey(name: 'created_at') String createdAt,
       int tasksCount});
+
+  @override
+  $TeamCopyWith<$Res> get team;
 }
 
 /// @nodoc
@@ -136,7 +148,7 @@ class __$$ProjectImplCopyWithImpl<$Res>
   $Res call({
     Object? uid = null,
     Object? name = null,
-    Object? teamUid = null,
+    Object? team = null,
     Object? consumerUid = freezed,
     Object? inspectorUid = freezed,
     Object? createdAt = null,
@@ -151,10 +163,10 @@ class __$$ProjectImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      teamUid: null == teamUid
-          ? _value.teamUid
-          : teamUid // ignore: cast_nullable_to_non_nullable
-              as String,
+      team: null == team
+          ? _value.team
+          : team // ignore: cast_nullable_to_non_nullable
+              as Team,
       consumerUid: freezed == consumerUid
           ? _value.consumerUid
           : consumerUid // ignore: cast_nullable_to_non_nullable
@@ -181,7 +193,7 @@ class _$ProjectImpl implements _Project {
   const _$ProjectImpl(
       {required this.uid,
       required this.name,
-      @JsonKey(name: 'team_uid') required this.teamUid,
+      required this.team,
       @JsonKey(name: 'consumer_uid') required this.consumerUid,
       @JsonKey(name: 'inspector_uid') required this.inspectorUid,
       @JsonKey(name: 'created_at') required this.createdAt,
@@ -195,8 +207,7 @@ class _$ProjectImpl implements _Project {
   @override
   final String name;
   @override
-  @JsonKey(name: 'team_uid')
-  final String teamUid;
+  final Team team;
   @override
   @JsonKey(name: 'consumer_uid')
   final String? consumerUid;
@@ -211,7 +222,7 @@ class _$ProjectImpl implements _Project {
 
   @override
   String toString() {
-    return 'Project(uid: $uid, name: $name, teamUid: $teamUid, consumerUid: $consumerUid, inspectorUid: $inspectorUid, createdAt: $createdAt, tasksCount: $tasksCount)';
+    return 'Project(uid: $uid, name: $name, team: $team, consumerUid: $consumerUid, inspectorUid: $inspectorUid, createdAt: $createdAt, tasksCount: $tasksCount)';
   }
 
   @override
@@ -221,7 +232,7 @@ class _$ProjectImpl implements _Project {
             other is _$ProjectImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.teamUid, teamUid) || other.teamUid == teamUid) &&
+            (identical(other.team, team) || other.team == team) &&
             (identical(other.consumerUid, consumerUid) ||
                 other.consumerUid == consumerUid) &&
             (identical(other.inspectorUid, inspectorUid) ||
@@ -234,7 +245,7 @@ class _$ProjectImpl implements _Project {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, name, teamUid, consumerUid,
+  int get hashCode => Object.hash(runtimeType, uid, name, team, consumerUid,
       inspectorUid, createdAt, tasksCount);
 
   @JsonKey(ignore: true)
@@ -255,7 +266,7 @@ abstract class _Project implements Project {
   const factory _Project(
       {required final String uid,
       required final String name,
-      @JsonKey(name: 'team_uid') required final String teamUid,
+      required final Team team,
       @JsonKey(name: 'consumer_uid') required final String? consumerUid,
       @JsonKey(name: 'inspector_uid') required final String? inspectorUid,
       @JsonKey(name: 'created_at') required final String createdAt,
@@ -268,8 +279,7 @@ abstract class _Project implements Project {
   @override
   String get name;
   @override
-  @JsonKey(name: 'team_uid')
-  String get teamUid;
+  Team get team;
   @override
   @JsonKey(name: 'consumer_uid')
   String? get consumerUid;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
 import 'package:hakaton_teamspace/modules/projects/projects_page.dart';
+import 'package:hakaton_teamspace/widgets/scaffold.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -16,7 +17,7 @@ class AuthPage extends StatelessWidget {
           ));
         }
       },
-      child: Scaffold(
+      child: UIScaffold(
         appBar: AppBar(title: const Text('Auth Page')),
         body: const Center(
           child: _AuthButton(),

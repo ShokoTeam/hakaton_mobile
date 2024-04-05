@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-const colors = AppColors();
-
-class AppColors {
-  const AppColors();
-
-  final Color red = Colors.red;
+abstract class UIColors {
+  static const main = Color.fromRGBO(243, 243, 243, 1);
+  static const background = Color.fromRGBO(255, 255, 255, 1);
 }

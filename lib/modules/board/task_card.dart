@@ -1,6 +1,6 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:hakaton_teamspace/data/models/task.dart';
+import 'package:hakaton_teamspace/widgets/container.dart';
 
 class TaskCard extends StatelessWidget {
   const TaskCard(this.task, {super.key});
@@ -11,8 +11,7 @@ class TaskCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => showModalBottomSheet(context: context, builder: (context) => _TaskMBS(task)),
-      child: DottedBorder(
-        padding: const EdgeInsets.all(10),
+      child: UIContainer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,8 +34,7 @@ class _TaskMBS extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
+    return UIContainer(
       child: Column(
         children: [
           Text(task.name, style: const TextStyle(fontSize: 30)),

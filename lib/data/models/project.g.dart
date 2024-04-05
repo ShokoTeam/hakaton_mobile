@@ -10,7 +10,7 @@ _$ProjectImpl _$$ProjectImplFromJson(Map<String, dynamic> json) =>
     _$ProjectImpl(
       uid: json['uid'] as String,
       name: json['name'] as String,
-      teamUid: json['team_uid'] as String,
+      team: Team.fromJson(json['team'] as Map<String, dynamic>),
       consumerUid: json['consumer_uid'] as String?,
       inspectorUid: json['inspector_uid'] as String?,
       createdAt: json['created_at'] as String,
@@ -21,7 +21,7 @@ Map<String, dynamic> _$$ProjectImplToJson(_$ProjectImpl instance) =>
     <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
-      'team_uid': instance.teamUid,
+      'team': instance.team,
       'consumer_uid': instance.consumerUid,
       'inspector_uid': instance.inspectorUid,
       'created_at': instance.createdAt,

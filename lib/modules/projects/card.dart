@@ -1,8 +1,9 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:hakaton_teamspace/core/constants/constants.dart';
 import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/modules/board/board_page.dart';
+import 'package:hakaton_teamspace/widgets/container.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard(this.project, {super.key});
@@ -13,15 +14,21 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.push(BoardPage(project)),
-      child: DottedBorder(
-        padding: const EdgeInsets.all(10),
+      child: UIContainer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('${project.name} - ${project.uid}'),
-            Text('ConsumerUID: ${project.consumerUid}'),
-            Text('InspectorUID: ${project.inspectorUid}'),
-            Text('TeamUID: ${project.teamUid}'),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: Text(project.name, maxLines: 2, style: TStyles.title)),
+                const CircleAvatar(radius: 18, backgroundColor: UIColors.background),
+              ],
+            ),
+            const SizedBox(height: 34),
+            Text('${project.tasksCount} задач', maxLines: 2, style: TStyles.body),
+            const SizedBox(height: 4),
+            Text(project.team.name, maxLines: 2, style: TStyles.body),
           ],
         ),
       ),
