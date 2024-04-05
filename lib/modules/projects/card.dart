@@ -18,14 +18,10 @@ class ProjectCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(child: Text(project.name, maxLines: 2, style: TStyles.title)),
-                const CircleAvatar(radius: 18, backgroundColor: UIColors.background),
-              ],
-            ),
-            const SizedBox(height: 34),
+            Text(project.name, maxLines: 2, style: TStyles.brandTitle),
+            const Spacer(),
+            const CircleAvatar(radius: 18, backgroundColor: UIColors.background),
+            const SizedBox(height: 4),
             Text('${project.tasksCount} задач', maxLines: 2, style: TStyles.body),
             const SizedBox(height: 4),
             Text(project.team.name, maxLines: 2, style: TStyles.body),

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/projects/projects_cubit.dart';
 import 'package:hakaton_teamspace/modules/projects/card.dart';
-import 'package:hakaton_teamspace/widgets/scaffold.dart';
 
 class ProjectsPage extends StatefulWidget {
   const ProjectsPage({super.key});
@@ -21,17 +20,22 @@ class _ProjectsPageState extends State<ProjectsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return UIScaffold(
-      appBar: AppBar(title: const Text('Projects Page')),
+    return Scaffold(
+      backgroundColor: UIColors.background,
+      appBar: AppBar(title: const Text('Проекты')),
       body: BlocBuilder<ProjectsProvider, ProjectsState>(
         builder: (context, state) {
           if (state is ProjectsLoaded) {
             final projects = state.projects;
-            return ListView.separated(
-              padding: const EdgeInsets.all(Paddings.based),
+            return GridView.builder(
+              padding: const EdgeInsets.all(Paddings.mini),
               itemCount: projects.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: Paddings.mini,
+                mainAxisSpacing: Paddings.mini,
+              ),
               itemBuilder: (_, idx) => ProjectCard(projects[idx]),
-              separatorBuilder: (_, __) => const SizedBox(height: Paddings.based),
             );
           }
           if (state is ProjectsLoading) {
@@ -39,6 +43,11 @@ class _ProjectsPageState extends State<ProjectsPage> {
           }
           return const SizedBox();
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: UIColors.main,
+        onPressed: () {},
+        child: const Icon(Icons.add, color: UIColors.brand),
       ),
     );
   }

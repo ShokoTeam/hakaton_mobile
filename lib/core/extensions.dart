@@ -23,3 +23,40 @@ extension ContextExtensions on BuildContext {
 
   void pop<T extends Object>(Widget widget) => Navigator.pop(this);
 }
+
+extension DateTimeExt on DateTime {
+  String toStringShort() =>
+      '${day.toString().padLeft(2, '0')}.${month.toString().padLeft(2, '0')}.${year.toString().padLeft(2, '0')}';
+}
+
+extension StringParseExt on String? {
+  String asState() => switch (this) {
+        'queue' => 'В очереди',
+        'progress' => 'В работе',
+        'finally' => 'Выполнена',
+        _ => 'Статуса нет',
+      };
+
+  String asPriority() => switch (this) {
+        'low' => 'Низкий',
+        'middle' => 'Средний',
+        'high' => 'Высокий',
+        _ => 'Приоритета нет',
+      };
+
+  String asCategory() => switch (this) {
+        'hotfix' => 'Ошибка',
+        'changes' => 'Доработка',
+        'new' => 'Новая фича',
+        _ => 'Категории нет',
+      };
+
+  String asStep() => switch (this) {
+        'Analys' => 'Аналитика',
+        'Coding' => 'Разработка',
+        'Testing' => 'Тестирование',
+        'Acceptance' => 'Приемка',
+        'Release' => 'Релиз',
+        _ => 'Этапа нет',
+      };
+}

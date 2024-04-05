@@ -4,7 +4,6 @@ import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/board/board_cubit.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/modules/board/task_card.dart';
-import 'package:hakaton_teamspace/widgets/scaffold.dart';
 
 class BoardPage extends StatefulWidget {
   const BoardPage(this.project, {super.key});
@@ -24,8 +23,9 @@ class _BoardPageState extends State<BoardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return UIScaffold(
-      appBar: AppBar(title: const Text('Board Page')),
+    return Scaffold(
+      backgroundColor: UIColors.background,
+      appBar: AppBar(title: Text('Проект ${widget.project.name}')),
       body: BlocBuilder<BoardProvider, BoardState>(
         builder: (context, state) {
           if (state is BoardLoaded) {
@@ -33,7 +33,7 @@ class _BoardPageState extends State<BoardPage> {
             return ListView.separated(
               padding: const EdgeInsets.all(20),
               itemCount: tasks.length,
-              itemBuilder: (_, idx) => TaskCard(tasks[idx]),
+              itemBuilder: (_, idx) => TaskCard(tasks[idx], widget.project),
               separatorBuilder: (_, __) => const SizedBox(height: Paddings.based),
             );
           }
@@ -42,6 +42,11 @@ class _BoardPageState extends State<BoardPage> {
           }
           return const SizedBox();
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: UIColors.main,
+        onPressed: () {},
+        child: const Icon(Icons.add, color: UIColors.brand),
       ),
     );
   }

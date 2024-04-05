@@ -13,7 +13,7 @@ class UIContainer extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      padding: const EdgeInsets.all(Paddings.based),
+      padding: const EdgeInsets.all(Paddings.mini),
       decoration: const BoxDecoration(
         color: UIColors.main,
         borderRadius: BorderRadius.all(Radius.circular(5)),

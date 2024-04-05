@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/utils.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
-import 'package:hakaton_teamspace/modules/projects/projects_page.dart';
+import 'package:hakaton_teamspace/modules/home_page.dart';
 import 'package:hakaton_teamspace/widgets/scaffold.dart';
 import 'package:hakaton_teamspace/widgets/textfield.dart';
 
@@ -17,7 +17,7 @@ class AuthPage extends StatelessWidget {
       listener: (context, state) {
         if (state is UserAuthorized) {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => const ProjectsPage(),
+            builder: (context) => const HomePage(),
           ));
         }
       },
@@ -62,7 +62,7 @@ class _AuthBodyState extends State<_AuthBody> {
           );
     } on DioException catch (e) {
       if (!mounted) return;
-      return Utils.of(context).showError(e.response?.data['data']);
+      Utils.of(context).showError(e.response?.data);
     }
     setState(() => _isLoading = false);
   }

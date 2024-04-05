@@ -6,7 +6,7 @@ import 'package:hakaton_teamspace/data/providers/projects/projects_cubit.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
 import 'package:hakaton_teamspace/data/models/user.dart';
 import 'package:hakaton_teamspace/modules/auth/auth_page.dart';
-import 'package:hakaton_teamspace/modules/projects/projects_page.dart';
+import 'package:hakaton_teamspace/modules/home_page.dart';
 
 void main() {
   const initUser = null;
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: initUser == null ? const AuthPage() : const ProjectsPage(),
+        home: initUser == null ? const AuthPage() : const HomePage(),
       ),
     );
   }
