@@ -35,6 +35,7 @@ class _TaskMBS extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return UIContainer(
+      width: double.infinity,
       child: Column(
         children: [
           Text(task.name, style: const TextStyle(fontSize: 30)),
