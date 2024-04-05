@@ -22,14 +22,22 @@ Task _$TaskFromJson(Map<String, dynamic> json) {
 mixin _$Task {
   String get uid => throw _privateConstructorUsedError;
   int get number => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parent_project_uid')
   String get projectUid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  DateTime get startDate => throw _privateConstructorUsedError;
-  DateTime get endDate => throw _privateConstructorUsedError;
-  String get executerUid => throw _privateConstructorUsedError;
-  int get storyPoints => throw _privateConstructorUsedError;
-  int get difficulty => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  DateTime? get startDate => throw _privateConstructorUsedError;
+  DateTime? get endDate => throw _privateConstructorUsedError;
+  @JsonKey(name: 'executer_uid')
+  String? get executerUid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'story_points_uid')
+  String? get storyPointsUid => throw _privateConstructorUsedError;
+  String? get importance => throw _privateConstructorUsedError;
+  String? get step => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  String get state => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,14 +52,18 @@ abstract class $TaskCopyWith<$Res> {
   $Res call(
       {String uid,
       int number,
-      String projectUid,
+      @JsonKey(name: 'parent_project_uid') String projectUid,
       String name,
-      String description,
-      DateTime startDate,
-      DateTime endDate,
-      String executerUid,
-      int storyPoints,
-      int difficulty});
+      String? description,
+      DateTime? startDate,
+      DateTime? endDate,
+      @JsonKey(name: 'executer_uid') String? executerUid,
+      @JsonKey(name: 'story_points_uid') String? storyPointsUid,
+      String? importance,
+      String? step,
+      @JsonKey(name: 'created_at') DateTime createdAt,
+      String state,
+      String category});
 }
 
 /// @nodoc
@@ -71,12 +83,16 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
     Object? number = null,
     Object? projectUid = null,
     Object? name = null,
-    Object? description = null,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? executerUid = null,
-    Object? storyPoints = null,
-    Object? difficulty = null,
+    Object? description = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? executerUid = freezed,
+    Object? storyPointsUid = freezed,
+    Object? importance = freezed,
+    Object? step = freezed,
+    Object? createdAt = null,
+    Object? state = null,
+    Object? category = null,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
@@ -95,30 +111,46 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
+              as String?,
+      startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
+              as DateTime?,
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      executerUid: null == executerUid
+              as DateTime?,
+      executerUid: freezed == executerUid
           ? _value.executerUid
           : executerUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      storyPointsUid: freezed == storyPointsUid
+          ? _value.storyPointsUid
+          : storyPointsUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      importance: freezed == importance
+          ? _value.importance
+          : importance // ignore: cast_nullable_to_non_nullable
+              as String?,
+      step: freezed == step
+          ? _value.step
+          : step // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
               as String,
-      storyPoints: null == storyPoints
-          ? _value.storyPoints
-          : storyPoints // ignore: cast_nullable_to_non_nullable
-              as int,
-      difficulty: null == difficulty
-          ? _value.difficulty
-          : difficulty // ignore: cast_nullable_to_non_nullable
-              as int,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -133,14 +165,18 @@ abstract class _$$TaskImplCopyWith<$Res> implements $TaskCopyWith<$Res> {
   $Res call(
       {String uid,
       int number,
-      String projectUid,
+      @JsonKey(name: 'parent_project_uid') String projectUid,
       String name,
-      String description,
-      DateTime startDate,
-      DateTime endDate,
-      String executerUid,
-      int storyPoints,
-      int difficulty});
+      String? description,
+      DateTime? startDate,
+      DateTime? endDate,
+      @JsonKey(name: 'executer_uid') String? executerUid,
+      @JsonKey(name: 'story_points_uid') String? storyPointsUid,
+      String? importance,
+      String? step,
+      @JsonKey(name: 'created_at') DateTime createdAt,
+      String state,
+      String category});
 }
 
 /// @nodoc
@@ -157,12 +193,16 @@ class __$$TaskImplCopyWithImpl<$Res>
     Object? number = null,
     Object? projectUid = null,
     Object? name = null,
-    Object? description = null,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? executerUid = null,
-    Object? storyPoints = null,
-    Object? difficulty = null,
+    Object? description = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? executerUid = freezed,
+    Object? storyPointsUid = freezed,
+    Object? importance = freezed,
+    Object? step = freezed,
+    Object? createdAt = null,
+    Object? state = null,
+    Object? category = null,
   }) {
     return _then(_$TaskImpl(
       uid: null == uid
@@ -181,30 +221,46 @@ class __$$TaskImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      startDate: null == startDate
+              as String?,
+      startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
+              as DateTime?,
+      endDate: freezed == endDate
           ? _value.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      executerUid: null == executerUid
+              as DateTime?,
+      executerUid: freezed == executerUid
           ? _value.executerUid
           : executerUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      storyPointsUid: freezed == storyPointsUid
+          ? _value.storyPointsUid
+          : storyPointsUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      importance: freezed == importance
+          ? _value.importance
+          : importance // ignore: cast_nullable_to_non_nullable
+              as String?,
+      step: freezed == step
+          ? _value.step
+          : step // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
               as String,
-      storyPoints: null == storyPoints
-          ? _value.storyPoints
-          : storyPoints // ignore: cast_nullable_to_non_nullable
-              as int,
-      difficulty: null == difficulty
-          ? _value.difficulty
-          : difficulty // ignore: cast_nullable_to_non_nullable
-              as int,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -215,14 +271,18 @@ class _$TaskImpl implements _Task {
   const _$TaskImpl(
       {required this.uid,
       required this.number,
-      required this.projectUid,
+      @JsonKey(name: 'parent_project_uid') required this.projectUid,
       required this.name,
       required this.description,
       required this.startDate,
       required this.endDate,
-      required this.executerUid,
-      required this.storyPoints,
-      required this.difficulty});
+      @JsonKey(name: 'executer_uid') required this.executerUid,
+      @JsonKey(name: 'story_points_uid') required this.storyPointsUid,
+      required this.importance,
+      required this.step,
+      @JsonKey(name: 'created_at') required this.createdAt,
+      required this.state,
+      required this.category});
 
   factory _$TaskImpl.fromJson(Map<String, dynamic> json) =>
       _$$TaskImplFromJson(json);
@@ -232,25 +292,37 @@ class _$TaskImpl implements _Task {
   @override
   final int number;
   @override
+  @JsonKey(name: 'parent_project_uid')
   final String projectUid;
   @override
   final String name;
   @override
-  final String description;
+  final String? description;
   @override
-  final DateTime startDate;
+  final DateTime? startDate;
   @override
-  final DateTime endDate;
+  final DateTime? endDate;
   @override
-  final String executerUid;
+  @JsonKey(name: 'executer_uid')
+  final String? executerUid;
   @override
-  final int storyPoints;
+  @JsonKey(name: 'story_points_uid')
+  final String? storyPointsUid;
   @override
-  final int difficulty;
+  final String? importance;
+  @override
+  final String? step;
+  @override
+  @JsonKey(name: 'created_at')
+  final DateTime createdAt;
+  @override
+  final String state;
+  @override
+  final String category;
 
   @override
   String toString() {
-    return 'Task(uid: $uid, number: $number, projectUid: $projectUid, name: $name, description: $description, startDate: $startDate, endDate: $endDate, executerUid: $executerUid, storyPoints: $storyPoints, difficulty: $difficulty)';
+    return 'Task(uid: $uid, number: $number, projectUid: $projectUid, name: $name, description: $description, startDate: $startDate, endDate: $endDate, executerUid: $executerUid, storyPointsUid: $storyPointsUid, importance: $importance, step: $step, createdAt: $createdAt, state: $state, category: $category)';
   }
 
   @override
@@ -270,16 +342,36 @@ class _$TaskImpl implements _Task {
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
             (identical(other.executerUid, executerUid) ||
                 other.executerUid == executerUid) &&
-            (identical(other.storyPoints, storyPoints) ||
-                other.storyPoints == storyPoints) &&
-            (identical(other.difficulty, difficulty) ||
-                other.difficulty == difficulty));
+            (identical(other.storyPointsUid, storyPointsUid) ||
+                other.storyPointsUid == storyPointsUid) &&
+            (identical(other.importance, importance) ||
+                other.importance == importance) &&
+            (identical(other.step, step) || other.step == step) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uid, number, projectUid, name,
-      description, startDate, endDate, executerUid, storyPoints, difficulty);
+  int get hashCode => Object.hash(
+      runtimeType,
+      uid,
+      number,
+      projectUid,
+      name,
+      description,
+      startDate,
+      endDate,
+      executerUid,
+      storyPointsUid,
+      importance,
+      step,
+      createdAt,
+      state,
+      category);
 
   @JsonKey(ignore: true)
   @override
@@ -299,14 +391,18 @@ abstract class _Task implements Task {
   const factory _Task(
       {required final String uid,
       required final int number,
-      required final String projectUid,
+      @JsonKey(name: 'parent_project_uid') required final String projectUid,
       required final String name,
-      required final String description,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final String executerUid,
-      required final int storyPoints,
-      required final int difficulty}) = _$TaskImpl;
+      required final String? description,
+      required final DateTime? startDate,
+      required final DateTime? endDate,
+      @JsonKey(name: 'executer_uid') required final String? executerUid,
+      @JsonKey(name: 'story_points_uid') required final String? storyPointsUid,
+      required final String? importance,
+      required final String? step,
+      @JsonKey(name: 'created_at') required final DateTime createdAt,
+      required final String state,
+      required final String category}) = _$TaskImpl;
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
 
@@ -315,21 +411,33 @@ abstract class _Task implements Task {
   @override
   int get number;
   @override
+  @JsonKey(name: 'parent_project_uid')
   String get projectUid;
   @override
   String get name;
   @override
-  String get description;
+  String? get description;
   @override
-  DateTime get startDate;
+  DateTime? get startDate;
   @override
-  DateTime get endDate;
+  DateTime? get endDate;
   @override
-  String get executerUid;
+  @JsonKey(name: 'executer_uid')
+  String? get executerUid;
   @override
-  int get storyPoints;
+  @JsonKey(name: 'story_points_uid')
+  String? get storyPointsUid;
   @override
-  int get difficulty;
+  String? get importance;
+  @override
+  String? get step;
+  @override
+  @JsonKey(name: 'created_at')
+  DateTime get createdAt;
+  @override
+  String get state;
+  @override
+  String get category;
   @override
   @JsonKey(ignore: true)
   _$$TaskImplCopyWith<_$TaskImpl> get copyWith =>

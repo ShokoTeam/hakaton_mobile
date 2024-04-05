@@ -22,9 +22,15 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 mixin _$Project {
   String get uid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get parentTeamUid => throw _privateConstructorUsedError;
-  String get consumerUid => throw _privateConstructorUsedError;
-  String get inspectorUid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'team_uid')
+  String get teamUid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'consumer_uid')
+  String? get consumerUid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'inspector_uid')
+  String? get inspectorUid => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  String get createdAt => throw _privateConstructorUsedError;
+  int get tasksCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +45,11 @@ abstract class $ProjectCopyWith<$Res> {
   $Res call(
       {String uid,
       String name,
-      String parentTeamUid,
-      String consumerUid,
-      String inspectorUid});
+      @JsonKey(name: 'team_uid') String teamUid,
+      @JsonKey(name: 'consumer_uid') String? consumerUid,
+      @JsonKey(name: 'inspector_uid') String? inspectorUid,
+      @JsonKey(name: 'created_at') String createdAt,
+      int tasksCount});
 }
 
 /// @nodoc
@@ -59,9 +67,11 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
   $Res call({
     Object? uid = null,
     Object? name = null,
-    Object? parentTeamUid = null,
-    Object? consumerUid = null,
-    Object? inspectorUid = null,
+    Object? teamUid = null,
+    Object? consumerUid = freezed,
+    Object? inspectorUid = freezed,
+    Object? createdAt = null,
+    Object? tasksCount = null,
   }) {
     return _then(_value.copyWith(
       uid: null == uid
@@ -72,18 +82,26 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      parentTeamUid: null == parentTeamUid
-          ? _value.parentTeamUid
-          : parentTeamUid // ignore: cast_nullable_to_non_nullable
+      teamUid: null == teamUid
+          ? _value.teamUid
+          : teamUid // ignore: cast_nullable_to_non_nullable
               as String,
-      consumerUid: null == consumerUid
+      consumerUid: freezed == consumerUid
           ? _value.consumerUid
           : consumerUid // ignore: cast_nullable_to_non_nullable
-              as String,
-      inspectorUid: null == inspectorUid
+              as String?,
+      inspectorUid: freezed == inspectorUid
           ? _value.inspectorUid
           : inspectorUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
+      tasksCount: null == tasksCount
+          ? _value.tasksCount
+          : tasksCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -98,9 +116,11 @@ abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   $Res call(
       {String uid,
       String name,
-      String parentTeamUid,
-      String consumerUid,
-      String inspectorUid});
+      @JsonKey(name: 'team_uid') String teamUid,
+      @JsonKey(name: 'consumer_uid') String? consumerUid,
+      @JsonKey(name: 'inspector_uid') String? inspectorUid,
+      @JsonKey(name: 'created_at') String createdAt,
+      int tasksCount});
 }
 
 /// @nodoc
@@ -116,9 +136,11 @@ class __$$ProjectImplCopyWithImpl<$Res>
   $Res call({
     Object? uid = null,
     Object? name = null,
-    Object? parentTeamUid = null,
-    Object? consumerUid = null,
-    Object? inspectorUid = null,
+    Object? teamUid = null,
+    Object? consumerUid = freezed,
+    Object? inspectorUid = freezed,
+    Object? createdAt = null,
+    Object? tasksCount = null,
   }) {
     return _then(_$ProjectImpl(
       uid: null == uid
@@ -129,18 +151,26 @@ class __$$ProjectImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      parentTeamUid: null == parentTeamUid
-          ? _value.parentTeamUid
-          : parentTeamUid // ignore: cast_nullable_to_non_nullable
+      teamUid: null == teamUid
+          ? _value.teamUid
+          : teamUid // ignore: cast_nullable_to_non_nullable
               as String,
-      consumerUid: null == consumerUid
+      consumerUid: freezed == consumerUid
           ? _value.consumerUid
           : consumerUid // ignore: cast_nullable_to_non_nullable
-              as String,
-      inspectorUid: null == inspectorUid
+              as String?,
+      inspectorUid: freezed == inspectorUid
           ? _value.inspectorUid
           : inspectorUid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
+      tasksCount: null == tasksCount
+          ? _value.tasksCount
+          : tasksCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -151,9 +181,11 @@ class _$ProjectImpl implements _Project {
   const _$ProjectImpl(
       {required this.uid,
       required this.name,
-      required this.parentTeamUid,
-      required this.consumerUid,
-      required this.inspectorUid});
+      @JsonKey(name: 'team_uid') required this.teamUid,
+      @JsonKey(name: 'consumer_uid') required this.consumerUid,
+      @JsonKey(name: 'inspector_uid') required this.inspectorUid,
+      @JsonKey(name: 'created_at') required this.createdAt,
+      required this.tasksCount});
 
   factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProjectImplFromJson(json);
@@ -163,15 +195,23 @@ class _$ProjectImpl implements _Project {
   @override
   final String name;
   @override
-  final String parentTeamUid;
+  @JsonKey(name: 'team_uid')
+  final String teamUid;
   @override
-  final String consumerUid;
+  @JsonKey(name: 'consumer_uid')
+  final String? consumerUid;
   @override
-  final String inspectorUid;
+  @JsonKey(name: 'inspector_uid')
+  final String? inspectorUid;
+  @override
+  @JsonKey(name: 'created_at')
+  final String createdAt;
+  @override
+  final int tasksCount;
 
   @override
   String toString() {
-    return 'Project(uid: $uid, name: $name, parentTeamUid: $parentTeamUid, consumerUid: $consumerUid, inspectorUid: $inspectorUid)';
+    return 'Project(uid: $uid, name: $name, teamUid: $teamUid, consumerUid: $consumerUid, inspectorUid: $inspectorUid, createdAt: $createdAt, tasksCount: $tasksCount)';
   }
 
   @override
@@ -181,18 +221,21 @@ class _$ProjectImpl implements _Project {
             other is _$ProjectImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.parentTeamUid, parentTeamUid) ||
-                other.parentTeamUid == parentTeamUid) &&
+            (identical(other.teamUid, teamUid) || other.teamUid == teamUid) &&
             (identical(other.consumerUid, consumerUid) ||
                 other.consumerUid == consumerUid) &&
             (identical(other.inspectorUid, inspectorUid) ||
-                other.inspectorUid == inspectorUid));
+                other.inspectorUid == inspectorUid) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.tasksCount, tasksCount) ||
+                other.tasksCount == tasksCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, uid, name, parentTeamUid, consumerUid, inspectorUid);
+  int get hashCode => Object.hash(runtimeType, uid, name, teamUid, consumerUid,
+      inspectorUid, createdAt, tasksCount);
 
   @JsonKey(ignore: true)
   @override
@@ -212,9 +255,11 @@ abstract class _Project implements Project {
   const factory _Project(
       {required final String uid,
       required final String name,
-      required final String parentTeamUid,
-      required final String consumerUid,
-      required final String inspectorUid}) = _$ProjectImpl;
+      @JsonKey(name: 'team_uid') required final String teamUid,
+      @JsonKey(name: 'consumer_uid') required final String? consumerUid,
+      @JsonKey(name: 'inspector_uid') required final String? inspectorUid,
+      @JsonKey(name: 'created_at') required final String createdAt,
+      required final int tasksCount}) = _$ProjectImpl;
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 
@@ -223,11 +268,19 @@ abstract class _Project implements Project {
   @override
   String get name;
   @override
-  String get parentTeamUid;
+  @JsonKey(name: 'team_uid')
+  String get teamUid;
   @override
-  String get consumerUid;
+  @JsonKey(name: 'consumer_uid')
+  String? get consumerUid;
   @override
-  String get inspectorUid;
+  @JsonKey(name: 'inspector_uid')
+  String? get inspectorUid;
+  @override
+  @JsonKey(name: 'created_at')
+  String get createdAt;
+  @override
+  int get tasksCount;
   @override
   @JsonKey(ignore: true)
   _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>

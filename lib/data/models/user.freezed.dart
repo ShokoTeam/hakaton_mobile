@@ -22,8 +22,10 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   String get uid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get lastName => throw _privateConstructorUsedError;
-  String get teamUid => throw _privateConstructorUsedError;
+  String get lastname => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'team_uid')
+  String? get teamUid => throw _privateConstructorUsedError;
   String get position => throw _privateConstructorUsedError;
   bool get isBusiness => throw _privateConstructorUsedError;
 
@@ -40,8 +42,9 @@ abstract class $UserCopyWith<$Res> {
   $Res call(
       {String uid,
       String name,
-      String lastName,
-      String teamUid,
+      String lastname,
+      String email,
+      @JsonKey(name: 'team_uid') String? teamUid,
       String position,
       bool isBusiness});
 }
@@ -61,8 +64,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? uid = null,
     Object? name = null,
-    Object? lastName = null,
-    Object? teamUid = null,
+    Object? lastname = null,
+    Object? email = null,
+    Object? teamUid = freezed,
     Object? position = null,
     Object? isBusiness = null,
   }) {
@@ -75,14 +79,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
+      lastname: null == lastname
+          ? _value.lastname
+          : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      teamUid: null == teamUid
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamUid: freezed == teamUid
           ? _value.teamUid
           : teamUid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -105,8 +113,9 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   $Res call(
       {String uid,
       String name,
-      String lastName,
-      String teamUid,
+      String lastname,
+      String email,
+      @JsonKey(name: 'team_uid') String? teamUid,
       String position,
       bool isBusiness});
 }
@@ -123,8 +132,9 @@ class __$$UserImplCopyWithImpl<$Res>
   $Res call({
     Object? uid = null,
     Object? name = null,
-    Object? lastName = null,
-    Object? teamUid = null,
+    Object? lastname = null,
+    Object? email = null,
+    Object? teamUid = freezed,
     Object? position = null,
     Object? isBusiness = null,
   }) {
@@ -137,14 +147,18 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
+      lastname: null == lastname
+          ? _value.lastname
+          : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      teamUid: null == teamUid
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamUid: freezed == teamUid
           ? _value.teamUid
           : teamUid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       position: null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
@@ -163,8 +177,9 @@ class _$UserImpl implements _User {
   const _$UserImpl(
       {required this.uid,
       required this.name,
-      required this.lastName,
-      required this.teamUid,
+      required this.lastname,
+      required this.email,
+      @JsonKey(name: 'team_uid') required this.teamUid,
       required this.position,
       required this.isBusiness});
 
@@ -176,9 +191,12 @@ class _$UserImpl implements _User {
   @override
   final String name;
   @override
-  final String lastName;
+  final String lastname;
   @override
-  final String teamUid;
+  final String email;
+  @override
+  @JsonKey(name: 'team_uid')
+  final String? teamUid;
   @override
   final String position;
   @override
@@ -186,7 +204,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(uid: $uid, name: $name, lastName: $lastName, teamUid: $teamUid, position: $position, isBusiness: $isBusiness)';
+    return 'User(uid: $uid, name: $name, lastname: $lastname, email: $email, teamUid: $teamUid, position: $position, isBusiness: $isBusiness)';
   }
 
   @override
@@ -196,8 +214,9 @@ class _$UserImpl implements _User {
             other is _$UserImpl &&
             (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
+            (identical(other.lastname, lastname) ||
+                other.lastname == lastname) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.teamUid, teamUid) || other.teamUid == teamUid) &&
             (identical(other.position, position) ||
                 other.position == position) &&
@@ -208,7 +227,7 @@ class _$UserImpl implements _User {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, uid, name, lastName, teamUid, position, isBusiness);
+      runtimeType, uid, name, lastname, email, teamUid, position, isBusiness);
 
   @JsonKey(ignore: true)
   @override
@@ -228,8 +247,9 @@ abstract class _User implements User {
   const factory _User(
       {required final String uid,
       required final String name,
-      required final String lastName,
-      required final String teamUid,
+      required final String lastname,
+      required final String email,
+      @JsonKey(name: 'team_uid') required final String? teamUid,
       required final String position,
       required final bool isBusiness}) = _$UserImpl;
 
@@ -240,9 +260,12 @@ abstract class _User implements User {
   @override
   String get name;
   @override
-  String get lastName;
+  String get lastname;
   @override
-  String get teamUid;
+  String get email;
+  @override
+  @JsonKey(name: 'team_uid')
+  String? get teamUid;
   @override
   String get position;
   @override

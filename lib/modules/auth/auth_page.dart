@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hakaton_teamspace/data/bloc/cubit/user_cubit.dart';
-import 'package:hakaton_teamspace/modules/projects/home_page.dart';
+import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
+import 'package:hakaton_teamspace/modules/projects/projects_page.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -38,7 +38,10 @@ class _AuthButtonState extends State<_AuthButton> {
 
   void _auth() async {
     setState(() => _isLoading = true);
-    await context.read<UserProvider>().authViaEmail(email: 'user@email.com', password: 'user');
+    await context.read<UserProvider>().authViaEmail(
+          email: 'test@mail.ru',
+          password: 'testpassword',
+        );
     setState(() => _isLoading = true);
   }
 
