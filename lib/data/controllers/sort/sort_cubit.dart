@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/models/task.dart';
 
 part 'sort_state.dart';

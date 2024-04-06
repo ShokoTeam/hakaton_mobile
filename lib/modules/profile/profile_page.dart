@@ -1,13 +1,9 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
+import 'package:hakaton_teamspace/modules/auth/auth_page.dart';
 import 'package:hakaton_teamspace/widgets/widgets.dart';
-import 'package:hive/hive.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -47,9 +43,12 @@ class ProfilePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 40),
                     ElevatedButton(
-                      onPressed: () {
-                        Hive.box<String?>('local').clear();
-                        exit(0);
+                      onPressed: () async {
+                        await context.read<UserProvider>().logout();
+                        if (!context.mounted) return;
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (_) => const AuthPage(),
+                        ));
                       },
                       child: const SizedBox(
                         width: 120,

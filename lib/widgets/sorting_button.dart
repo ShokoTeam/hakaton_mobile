@@ -55,7 +55,7 @@ class _SortMBSState extends State<_SortMBS> {
           const Text('Сортировка', style: TStyles.header),
           const SizedBox(height: 8),
           _btn(Sorting.errorsFirst),
-          // _btn(Sorting.importantFirst),
+          _btn(Sorting.importantFirst),
           _btn(Sorting.newFirst),
           _btn(Sorting.oldFirst),
           _btn(Sorting.off),

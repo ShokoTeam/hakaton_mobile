@@ -29,7 +29,7 @@ class _BoardPageState extends State<BoardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: UIColors.background,
-      appBar: AppBar(title: Text('Проект ${widget.project.name}')),
+      appBar: AppBar(title: Text(widget.project.name)),
       body: BlocBuilder<BoardProvider, BoardState>(
         builder: (context, state) {
           if (state is BoardLoaded) {

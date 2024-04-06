@@ -16,6 +16,11 @@ class UserProvider extends Cubit<UserState> with ApiHandler {
 
   User? user;
 
+  Future<void> logout() async {
+    await Hive.box<String?>('local').clear();
+    emit(UserEmpty());
+  }
+
   Future<void> loadUser(BuildContext context, String token) async {
     final response = await handleApiRequest(context, Api.dio.get(Routes.user));
     if (response == null) return;
