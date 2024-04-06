@@ -57,6 +57,7 @@ class _AuthBodyState extends State<_AuthBody> {
     setState(() => _isLoading = true);
     try {
       await context.read<UserProvider>().authViaEmail(
+            context,
             email: emailCtrl.text.trim(),
             password: passwordCtrl.text.trim(),
           );

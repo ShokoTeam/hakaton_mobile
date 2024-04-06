@@ -18,7 +18,7 @@ class _BoardPageState extends State<BoardPage> {
   @override
   void initState() {
     super.initState();
-    context.read<BoardProvider>().loadTasks(widget.project.uid);
+    context.read<BoardProvider>().loadTasks(context, widget.project.uid);
   }
 
   @override

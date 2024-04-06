@@ -15,7 +15,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
   @override
   void initState() {
     super.initState();
-    context.read<ProjectsProvider>().loadProjects();
+    context.read<ProjectsProvider>().loadProjects(context);
   }
 
   @override

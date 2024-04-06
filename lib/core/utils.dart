@@ -71,7 +71,7 @@ class _CustomSnackBar extends SnackBar {
           margin: EdgeInsets.zero,
           padding: EdgeInsets.zero,
           elevation: 0,
-          duration: const Duration(milliseconds: 3500),
+          duration: const Duration(milliseconds: 4000),
           content: GestureDetector(
             onTap: onTap,
             child: Container(
