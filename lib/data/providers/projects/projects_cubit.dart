@@ -12,7 +12,7 @@ part 'projects_state.dart';
 class ProjectsProvider extends Cubit<ProjectsState> with ApiHandler {
   ProjectsProvider() : super(ProjectsInitial());
 
-  void loadProjects(BuildContext context) async {
+  Future<void> loadProjects(BuildContext context) async {
     emit(ProjectsLoading());
 
     final response = await handleApiRequest(context, Api.dio.get(Routes.projectsAll));

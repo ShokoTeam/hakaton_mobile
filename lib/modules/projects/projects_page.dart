@@ -4,19 +4,8 @@ import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/projects/projects_cubit.dart';
 import 'package:hakaton_teamspace/modules/projects/card.dart';
 
-class ProjectsPage extends StatefulWidget {
+class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});
-
-  @override
-  State<ProjectsPage> createState() => _ProjectsPageState();
-}
-
-class _ProjectsPageState extends State<ProjectsPage> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<ProjectsProvider>().loadProjects(context);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +16,18 @@ class _ProjectsPageState extends State<ProjectsPage> {
         builder: (context, state) {
           if (state is ProjectsLoaded) {
             final projects = state.projects;
-            return GridView.builder(
-              padding: const EdgeInsets.all(Paddings.mini),
-              itemCount: projects.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: Paddings.mini,
-                mainAxisSpacing: Paddings.mini,
+            return RefreshIndicator(
+              onRefresh: () async => await context.read<ProjectsProvider>().loadProjects(context),
+              child: GridView.builder(
+                padding: const EdgeInsets.all(Paddings.mini),
+                itemCount: projects.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: Paddings.mini,
+                  mainAxisSpacing: Paddings.mini,
+                ),
+                itemBuilder: (_, idx) => ProjectCard(projects[idx]),
               ),
-              itemBuilder: (_, idx) => ProjectCard(projects[idx]),
             );
           }
           if (state is ProjectsLoading) {
