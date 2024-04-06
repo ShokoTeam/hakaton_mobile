@@ -16,7 +16,7 @@ class Project with _$Project {
     required Team team,
     @JsonKey(name: 'consumer_uid') required String? consumerUid,
     @JsonKey(name: 'inspector_uid') required String? inspectorUid,
-    @JsonKey(name: 'created_at') required String createdAt,
+    @JsonKey(name: 'created_at') required DateTime createdAt,
     required int tasksCount,
   }) = _Project;
 

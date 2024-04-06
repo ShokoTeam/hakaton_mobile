@@ -28,7 +28,7 @@ mixin _$Project {
   @JsonKey(name: 'inspector_uid')
   String? get inspectorUid => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
-  String get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   int get tasksCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $ProjectCopyWith<$Res> {
       Team team,
       @JsonKey(name: 'consumer_uid') String? consumerUid,
       @JsonKey(name: 'inspector_uid') String? inspectorUid,
-      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'created_at') DateTime createdAt,
       int tasksCount});
 
   $TeamCopyWith<$Res> get team;
@@ -98,7 +98,7 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
       tasksCount: null == tasksCount
           ? _value.tasksCount
           : tasksCount // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
       Team team,
       @JsonKey(name: 'consumer_uid') String? consumerUid,
       @JsonKey(name: 'inspector_uid') String? inspectorUid,
-      @JsonKey(name: 'created_at') String createdAt,
+      @JsonKey(name: 'created_at') DateTime createdAt,
       int tasksCount});
 
   @override
@@ -178,7 +178,7 @@ class __$$ProjectImplCopyWithImpl<$Res>
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
+              as DateTime,
       tasksCount: null == tasksCount
           ? _value.tasksCount
           : tasksCount // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ class __$$ProjectImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProjectImpl implements _Project {
+class _$ProjectImpl extends _Project {
   const _$ProjectImpl(
       {required this.uid,
       required this.name,
@@ -197,7 +197,8 @@ class _$ProjectImpl implements _Project {
       @JsonKey(name: 'consumer_uid') required this.consumerUid,
       @JsonKey(name: 'inspector_uid') required this.inspectorUid,
       @JsonKey(name: 'created_at') required this.createdAt,
-      required this.tasksCount});
+      required this.tasksCount})
+      : super._();
 
   factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProjectImplFromJson(json);
@@ -216,7 +217,7 @@ class _$ProjectImpl implements _Project {
   final String? inspectorUid;
   @override
   @JsonKey(name: 'created_at')
-  final String createdAt;
+  final DateTime createdAt;
   @override
   final int tasksCount;
 
@@ -262,15 +263,16 @@ class _$ProjectImpl implements _Project {
   }
 }
 
-abstract class _Project implements Project {
+abstract class _Project extends Project {
   const factory _Project(
       {required final String uid,
       required final String name,
       required final Team team,
       @JsonKey(name: 'consumer_uid') required final String? consumerUid,
       @JsonKey(name: 'inspector_uid') required final String? inspectorUid,
-      @JsonKey(name: 'created_at') required final String createdAt,
+      @JsonKey(name: 'created_at') required final DateTime createdAt,
       required final int tasksCount}) = _$ProjectImpl;
+  const _Project._() : super._();
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 
@@ -288,7 +290,7 @@ abstract class _Project implements Project {
   String? get inspectorUid;
   @override
   @JsonKey(name: 'created_at')
-  String get createdAt;
+  DateTime get createdAt;
   @override
   int get tasksCount;
   @override

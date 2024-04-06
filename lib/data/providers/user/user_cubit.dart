@@ -5,6 +5,7 @@ import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/api.dart';
 import 'package:hakaton_teamspace/data/models/user.dart';
+import 'package:hive/hive.dart';
 
 part 'user_state.dart';
 
@@ -34,6 +35,8 @@ class UserProvider extends Cubit<UserState> with ApiHandler {
 
     final token = await response.data;
     Api.setToken(token);
+    Hive.box<String?>('local').put('token', token);
+
     await loadUser(context, token);
   }
 }

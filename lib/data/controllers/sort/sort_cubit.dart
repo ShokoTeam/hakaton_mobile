@@ -1,9 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hakaton_teamspace/core/extensions.dart';
+import 'package:hakaton_teamspace/data/models/task.dart';
 
 part 'sort_state.dart';
 
 enum Sorting {
   off('По-умолчанию'),
+  importantFirst('Сначала важные'),
+  errorsFirst('Сначала ошибки'),
+
   newFirst('Сначала новые'),
   oldFirst('Сначала старые');
 
@@ -14,7 +19,7 @@ enum Sorting {
 class SortingController extends Cubit<SortingState> {
   SortingController(this.items) : super(SortingState(items, Sorting.off));
 
-  List<dynamic> items;
+  List<Task> items;
 
   void setFilter(Sorting filter) {
     switch (filter) {
@@ -22,12 +27,22 @@ class SortingController extends Cubit<SortingState> {
         return emit(SortingState(items, filter));
       case Sorting.newFirst:
         final sorted = [...items]..sort(
-            (a, b) => DateTime.parse(a.createdAt).compareTo(DateTime.parse(b.createdAt)),
+            (a, b) => a.createdAt.compareTo(b.createdAt),
           );
         return emit(SortingState(sorted, filter));
       case Sorting.oldFirst:
         final sorted = [...items]..sort(
-            (b, a) => DateTime.parse(a.createdAt).compareTo(DateTime.parse(b.createdAt)),
+            (b, a) => a.createdAt.compareTo(b.createdAt),
+          );
+        return emit(SortingState(sorted, filter));
+      case Sorting.errorsFirst:
+        final sorted = [...items]..sort(
+            (b, a) => (a.category == 'hotfix' ? 1 : 0).compareTo((b.category == 'hotfix' ? 1 : 0)),
+          );
+        return emit(SortingState(sorted, filter));
+      case Sorting.importantFirst:
+        final sorted = [...items]..sort(
+            (b, a) => (a.importance == 'high' ? 1 : 0).compareTo(b.importance == 'high' ? 1 : 0),
           );
         return emit(SortingState(sorted, filter));
     }
