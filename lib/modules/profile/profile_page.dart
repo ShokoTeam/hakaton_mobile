@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
@@ -27,12 +29,14 @@ class ProfilePage extends StatelessWidget {
                       children: [
                         UIAvatar(36, user.isBusiness),
                         const SizedBox(width: 16),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(user.email, style: TStyles.heading),
-                            Text('Должность: ${user.position}', style: TStyles.title),
-                          ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(user.email, style: TStyles.header),
+                              Text('Должность: ${user.position}', style: TStyles.title),
+                            ],
+                          ),
                         ),
                         const SizedBox(width: 32)
                       ],

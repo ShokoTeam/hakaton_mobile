@@ -8,6 +8,8 @@ part 'project.g.dart';
 
 @freezed
 class Project with _$Project {
+  const Project._();
+
   const factory Project({
     required String uid,
     required String name,
