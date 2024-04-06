@@ -38,7 +38,7 @@ class TaskPage extends StatelessWidget {
               'Заказчик',
               Row(
                 children: [
-                  const CircleAvatar(radius: 12, backgroundColor: UIColors.brand),
+                  const UIAvatar(12, true),
                   const SizedBox(width: 12),
                   Text(project.consumerUid ?? 'Нет заказчика', style: TStyles.body),
                 ],
@@ -64,10 +64,10 @@ class TaskPage extends StatelessWidget {
             _RowInfo('Тип', UIChip.category(task.category)),
             const SizedBox(height: 12),
             _RowInfo(
-              'Ответственный',
+              'Исполнитель',
               Row(
                 children: [
-                  const CircleAvatar(radius: 12, backgroundColor: UIColors.brand),
+                  const UIAvatar(12, false),
                   const SizedBox(width: 12),
                   Text(task.executerUid ?? 'Нет исполнителя', style: TStyles.body),
                 ],

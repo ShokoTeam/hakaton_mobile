@@ -20,7 +20,7 @@ class ProjectCard extends StatelessWidget {
           children: [
             Text(project.name, maxLines: 2, style: TStyles.brandTitle),
             const Spacer(),
-            const CircleAvatar(radius: 18, backgroundColor: UIColors.background),
+            const UIAvatar(18, true),
             const SizedBox(height: 4),
             Text('${project.tasksCount} задач', maxLines: 2, style: TStyles.body),
             const SizedBox(height: 4),

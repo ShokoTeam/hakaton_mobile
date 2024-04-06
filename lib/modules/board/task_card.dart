@@ -35,13 +35,13 @@ class TaskCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                const CircleAvatar(radius: 18, backgroundColor: UIColors.background),
+                const UIAvatar(18, false),
               ],
             ),
             const SizedBox(height: 32),
             Row(
               children: [
-                const CircleAvatar(radius: 12, backgroundColor: UIColors.background),
+                const UIAvatar(12, true),
                 const SizedBox(width: 8),
                 Text(project.consumerUid ?? 'Нет заказчика'),
               ],

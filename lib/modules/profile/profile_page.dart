@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
+import 'package:hakaton_teamspace/widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -24,15 +25,7 @@ class ProfilePage extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        CircleAvatar(
-                          radius: 36,
-                          backgroundColor: UIColors.brand,
-                          child: Icon(
-                            user.isBusiness ? Icons.business_center : Icons.person,
-                            size: 48,
-                            color: UIColors.main,
-                          ),
-                        ),
+                        UIAvatar(36, user.isBusiness),
                         const SizedBox(width: 16),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

@@ -115,3 +115,23 @@ class UIChip extends StatelessWidget {
     );
   }
 }
+
+class UIAvatar extends StatelessWidget {
+  const UIAvatar(this.radius, this.isBusiness, {super.key});
+
+  final double radius;
+  final bool isBusiness;
+
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      radius: radius,
+      backgroundColor: UIColors.brand,
+      child: Icon(
+        isBusiness ? Icons.business_center : Icons.person,
+        size: radius * 1.4,
+        color: UIColors.main,
+      ),
+    );
+  }
+}
