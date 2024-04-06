@@ -5,8 +5,7 @@ import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/utils.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
 import 'package:hakaton_teamspace/modules/home_page.dart';
-import 'package:hakaton_teamspace/widgets/scaffold.dart';
-import 'package:hakaton_teamspace/widgets/textfield.dart';
+import 'package:hakaton_teamspace/widgets/widgets.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -21,7 +20,8 @@ class AuthPage extends StatelessWidget {
           ));
         }
       },
-      child: UIScaffold(
+      child: Scaffold(
+        backgroundColor: UIColors.background,
         appBar: AppBar(title: const Text('Auth Page')),
         body: const Center(
           child: _AuthBody(),

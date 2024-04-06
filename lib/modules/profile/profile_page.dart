@@ -1,16 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/data/providers/user/user_cubit.dart';
-import 'package:hakaton_teamspace/widgets/scaffold.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return UIScaffold(
+    return Scaffold(
+      backgroundColor: UIColors.background,
       appBar: AppBar(title: const Text('Профиль')),
       body: BlocBuilder<UserProvider, UserState>(
         builder: (context, state) {

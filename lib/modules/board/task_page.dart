@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/data/models/task.dart';
-import 'package:hakaton_teamspace/widgets/chip.dart';
+import 'package:hakaton_teamspace/widgets/widgets.dart';
 
 class TaskPage extends StatelessWidget {
   const TaskPage(this.task, this.project, {super.key});
@@ -106,19 +104,6 @@ class _RowInfo extends StatelessWidget {
         const SizedBox(width: 32),
         value,
       ],
-    );
-  }
-}
-
-class UISpacer extends StatelessWidget {
-  const UISpacer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      color: const Color.fromRGBO(229, 229, 229, 1),
-      height: 4,
     );
   }
 }

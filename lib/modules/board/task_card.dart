@@ -4,8 +4,7 @@ import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/data/models/task.dart';
 import 'package:hakaton_teamspace/modules/board/task_page.dart';
-import 'package:hakaton_teamspace/widgets/chip.dart';
-import 'package:hakaton_teamspace/widgets/container.dart';
+import 'package:hakaton_teamspace/widgets/widgets.dart';
 
 class TaskCard extends StatelessWidget {
   const TaskCard(this.task, this.project, {super.key});

@@ -3,7 +3,7 @@ import 'package:hakaton_teamspace/core/constants.dart';
 import 'package:hakaton_teamspace/core/extensions.dart';
 import 'package:hakaton_teamspace/data/models/project.dart';
 import 'package:hakaton_teamspace/modules/board/board_page.dart';
-import 'package:hakaton_teamspace/widgets/container.dart';
+import 'package:hakaton_teamspace/widgets/widgets.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard(this.project, {super.key});
